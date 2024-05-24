@@ -12,25 +12,51 @@ html {
 
 .layout {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(0, 0, 0);
     background: linear-gradient(90deg, #5eaeff, #d1c1ff);
     font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     overflow-x: hidden;
     position: relative;
+    padding: 4rem;
+}
+
+.nav__layout {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0.445);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    padding: 0rem 2rem;
 }
 
 .main__layout {
+    max-width: 1024px;
+    margin-top: 5rem;
     width: 100%;
     height: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(0, 0, 0, 0.33);
+    padding: 3rem;
+    border-radius: 20px;
 }
 
 .card {
-    width: 300px;
+    width: 500px;
     height: 180px;
     background:
         linear-gradient(45deg, #31daff 0%, #5BB0FF 100%) no-repeat,
@@ -48,6 +74,7 @@ html {
     justify-content: center;
     align-items: center;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.183);
+    margin-bottom: 1rem;
 }
 
 .card2 {
@@ -77,6 +104,8 @@ html {
 }
 
 .card__city {
+    width: 100%;
+    text-align: center;
     font-size: 3rem;
     font-weight: 400;
     color: white;
@@ -115,4 +144,103 @@ html {
 
 .card__img {
     width: 100px;
+}
+
+.weather__btn {
+    margin-top: 10px;
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.183);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+}
+
+.weather__btn:hover {
+    background-color: red;
+    background-color: white;
+    color: #2e2e2e;
+}
+
+.input__city {
+    margin-top: 1rem;
+    border: none;
+    width: 300px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: transparent;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.183);
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+}
+
+.input__city::placeholder {
+    color: white;
+}
+
+.card__container {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+
+.card__item {
+    width: 100%;
+    height: 25%;
+    border-radius: 20px;
+    color: white;
+    font-size: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 650px) {
+    .layout {
+        padding: 0rem;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .weather__btn {
+        width: 100%;
+    }
+
+    .input__city {
+        width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .card__city {
+
+        font-size: 2rem;
+
+    }
+
+    .card__temp {
+        font-size: 2.2rem;
+
+    }
+
+    .card__desc {
+
+        font-size: 1.6rem;
+
+    }
+
+    .card__img {
+        width: 80px;
+    }
 }
