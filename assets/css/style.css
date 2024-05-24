@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+.layout {
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0, 0, 0);
+    background: linear-gradient(90deg, #5eaeff, #d1c1ff);
+    font-family: 'Montserrat', 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.main__layout {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 300px;
+    height: 180px;
+    background:
+        linear-gradient(45deg, #31daff 0%, #5BB0FF 100%) no-repeat,
+        linear-gradient(135deg, #61ECFF80 0%, #89E3FF80 100%) no-repeat,
+        linear-gradient(0deg, #a307ce80 0%, #5a019a80 100%) no-repeat,
+        linear-gradient(270deg, #dadada7a 0%, #ffffff1f 100%) no-repeat;
+    background-size: cover, cover;
+    background-blend-mode: overlay;
+    border-radius: 20px;
+    position: relative;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.183);
+}
+
+.card2 {
+    width: 300px;
+    height: 180px;
+    background:
+        linear-gradient(45deg, #656565 0%, #a2a2a2 100%) no-repeat,
+        linear-gradient(135deg, #72727280 0%, #aeaeae80 100%) no-repeat,
+        linear-gradient(0deg, #2b43d180 0%, #69696980 100%) no-repeat,
+        linear-gradient(270deg, #0000007a 0%, #3899f31f 100%) no-repeat;
+    background-size: cover, cover;
+    background-blend-mode: overlay;
+    border-radius: 20px;
+    position: relative;
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.183);
+}
+
+.card__left {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__city {
+    font-size: 3rem;
+    font-weight: 400;
+    color: white;
+}
+
+.card__temp {
+    font-size: 2.7rem;
+    font-weight: 500;
+    color: white;
+}
+
+.card__desc {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    font-weight: 300;
+}
+
+.card__right {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__icon {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card__img {
+    width: 100px;
+}
