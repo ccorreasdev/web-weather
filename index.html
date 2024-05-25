@@ -16,21 +16,26 @@
     </nav>
 
     <main class="main__layout">
-        <div class="card">
-            <div class="card__left">
-                <div id="card-city" class="card__city">Novelda</div>
-                <div id="card-temp" class="card__temp">20ºC</div>
 
-            </div>
-            <div class="card__right">
+        <div class="actual__weather">
+            <div class="card">
+                <div class=""></div>
+                <div class="card__left">
+                    <div id="card-city" class="card__city">Novelda</div>
+                    <div id="card-temp" class="card__temp">20ºC</div>
 
-                <div class="card__icon">
-                    <img id="card-icon" class="card__img" src="./assets/img/weather/Sunny.png" alt="weather">
                 </div>
-                <div id="card-desc" class="card__desc">Cielo despejado</div>
+                <div class="card__right">
+
+                    <div class="card__icon">
+                        <img id="card-icon" class="card__img" src="./assets/img/weather/Sunny.png" alt="weather">
+                    </div>
+                    <div id="card-desc" class="card__desc">Cielo despejado</div>
+                </div>
+
+
             </div>
         </div>
-
         <div class="card">
             <div class="card__container">
                 <div id="item1" class="card__item"></div>
@@ -40,8 +45,24 @@
             </div>
         </div>
 
-        <input class="input__city" type="text" id="city-input" placeholder="Introduce ciudad">
-        <div id="get-weather" class="weather__btn">Obtener clima</div>
+        <div id="forecast-weather" class="forecast__weather">
+            <div class="card2">
+                <div class="card__date">2024-05-25</div>
+                <div class="card__icon">
+                    <img id="card-icon" class="card__img" src="./assets/img/weather/Sunny.png" alt="weather">
+                </div>
+                <div class="card__description">Cielo despejado</div>
+                <div class="card__maxtemp">Max: 19ºC</div>
+                <div class="card__mintemp">Min: 13ºC</div>
+            </div>
+            <div class="card2"></div>
+            <div class="card2"></div>
+            <div class="card2"></div>
+            <div class="card2"></div>
+            <div class="card2"></div>
+        </div>
+        <!-- <input class="input__city" type="text" id="city-input" placeholder="Introduce ciudad">
+        <div id="get-weather" class="weather__btn">Obtener clima</div> -->
     </main>
 
 </body>

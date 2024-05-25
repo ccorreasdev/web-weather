@@ -40,6 +40,7 @@ const weatherCodes = {
 };
 
 
+const forecastWeatherLayout = document.querySelector("#forecast-weather");
 const cardCity = document.querySelector("#card-city");
 const cardTemp = document.querySelector("#card-temp");
 const cardDesc = document.querySelector("#card-desc");
@@ -52,10 +53,30 @@ const getWeatherBtn = document.querySelector("#get-weather");
 const cityInput = document.querySelector("#city-input");
 const API_KEY = "cffcff2eaa4b49a694a7c42b57d1324b";
 const API_URL = " https://api.weatherbit.io/v2.0/current?";
+const API_FORECAST_URL = "https://api.weatherbit.io/v2.0/forecast/daily?"
 let API_CITY = "Novelda"
 const API_LANGUAGE = "es"
 
 let actualWeather = undefined;
+let forecastWeather = undefined;
+
+const getForecastWeather = async () => {
+    try {
+        const API_FORECAST_WEATHER = `${API_FORECAST_URL}city=${API_CITY}&key=${API_KEY}&lang=${API_LANGUAGE}`;
+        const response = await fetch(API_FORECAST_WEATHER);
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok ' + response.statusText);
+        }
+
+        forecastWeather = await response.json();
+        console.log(forecastWeather);
+
+    } catch (error) {
+
+        console.error('There has been a problem with your fetch operation:', error);
+    }
+}
 
 const getActualWeather = async () => {
     try {
@@ -72,6 +93,49 @@ const getActualWeather = async () => {
     } catch (error) {
 
         console.error('There has been a problem with your fetch operation:', error);
+    }
+}
+
+const setForecastWeather = () => {
+    if (forecastWeather) {
+        forecastWeather.data.shift();
+        forecastWeatherLayout.innerHTML = "";
+
+        forecastWeather.data.forEach((forecast) => {
+            console.log(forecast);
+
+            const weatherCode = forecast.weather.code;
+            let imgPath = "";
+            if (weatherCode == 800) {
+                imgPath = "./assets/img/weather/Sunny.png"
+            } else if (weatherCode >= 300 && weatherCode <= 522) {
+                imgPath = "./assets/img/weather/Rainy.png"
+            } else if (weatherCode >= 200 && weatherCode <= 233) {
+                imgPath = "./assets/img/weather/RainThunder.png"
+            } else if (weatherCode >= 600 && weatherCode <= 623) {
+                imgPath = "./assets/img/weather/Snowy.png"
+            } else if (weatherCode >= 801 && weatherCode <= 804) {
+                imgPath = "./assets/img/weather/PartlyCloudy.png"
+            } else {
+                imgPath = "./assets/img/weather/PartlyCloudy.png"
+            }
+
+
+            let template = `<div class="card2">
+            <div class="card__date">${forecast.datetime}</div>
+            <div class="card__icon">
+                <img id="card-icon" class="card__img" src="${imgPath}" alt="weather">
+            </div>
+            <div class="card__description">${forecast.weather.description}</div>
+            <div class="card__maxtemp">Max: ${forecast.max_temp}ºC</div>
+            <div class="card__mintemp">Min: ${forecast.min_temp}ºC</div>
+        </div>`
+
+            forecastWeatherLayout.innerHTML += template;
+        });
+
+
+
     }
 }
 
@@ -105,19 +169,21 @@ const setActualWeather = () => {
 }
 
 const init = async () => {
-    // await getActualWeather();
-    //setActualWeather();
-
+    await getActualWeather();
+    setActualWeather();
+    await getForecastWeather();
+    setForecastWeather();
 }
 
 init();
 
-getWeatherBtn.addEventListener("click", async (e) => {
+// getWeatherBtn.addEventListener("click", async (e) => {
 
-    if (cityInput.value) {
-        API_CITY = await cityInput.value;
-        await getActualWeather();
-        setActualWeather();
-    }
+//     if (cityInput.value) {
+//         API_CITY = await cityInput.value;
+//         //await getForecastWeather();
+//         //await getActualWeather();
+//         //setActualWeather();
+//     }
 
-})
+// })
